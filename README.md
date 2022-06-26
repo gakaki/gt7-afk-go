@@ -1,4 +1,4 @@
-## GT7 (Sony PS5 Race Game) Automation GoLang
+    ## GT7 (Sony PS5 Race Game) Automation GoLang
 this is gt7 game afk with go language
 
 ###### Current project get Jetbrain Pycharm ide powerfuly support
@@ -10,13 +10,26 @@ this is gt7 game afk with go language
 ### ChangeLog
 
 2022.06.26 update for 1.17 reward bug
+#### Develop
 
+1 [Golang](https://go.dev/dl/)
 
-#### Usage
+2 [Jetbrain GoLand IDE](https://www.jetbrains.com/zh-cn/toolbox-app/)
+
+3 [MinGW x86_64-posix-seh](https://sourceforge.net/projects/mingw-w64/files/mingw-w64/)
+
+4 Add to System environment variables "PATH" With [Rapidee](https://www.rapidee.com/en/download)
+
+5 Install [PS Remote Play](https://remoteplay.dl.playstation.net/remoteplay/lang/en/ps4_win.html) Or [Chika](https://git.sr.ht/~thestr4ng3r/chiaki/refs/v2.1.1)
+
+6 Open GoLand IDE and Run It 
 
     go mod tidy
     go run main.go
 
+#### Usage
+
+    
 current 1.17 version unlimited engine swap and unlimited get reward is recommend for earn the cr and cars.
 
 

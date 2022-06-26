@@ -2,7 +2,11 @@ module github.gakaki.com/gt7-afk-go
 
 go 1.19
 
-require github.com/go-vgo/robotgo v0.100.10
+require (
+	github.com/JamesHovious/w32 v1.2.0
+	github.com/go-vgo/robotgo v0.100.10
+	github.com/hnakamur/w32syscall v0.0.0-20150329104255-b8b99ed86a56
+)
 
 require (
 	github.com/StackExchange/wmi v1.2.1 // indirect
