@@ -3,9 +3,13 @@ package util
 import (
 	"fmt"
 	"github.com/JamesHovious/w32"
+
+	//"github.com/JamesHovious/w32"
+
+	//"github.com/JamesHovious/w32"
+	"runtime"
+
 	"github.com/go-vgo/robotgo"
-	"github.com/hnakamur/w32syscall"
-	"github.com/lxn/win"
 	"log"
 	"strings"
 	"syscall"
@@ -38,7 +42,8 @@ var (
 	RegionScreenShot = Region{98, 120, 1587, 891, 0, 0}
 	PID              = 0 // ps remote play window pid\
 )
-var PSHWND w32.HWND
+
+//var PSHWND w32.HWND
 
 func Sleep(t time.Duration) {
 	time.Sleep(t)
@@ -174,10 +179,12 @@ func WaitAlreadyGetRewardPixel() bool {
 func MouseFocus(needLog bool) {
 	bounds := GetBounds()
 	robotgo.Move(bounds.centerX, bounds.centerY)
-	w32.SetFocus(PSHWND)
-	w32.SetForegroundWindow(PSHWND)
 
-	robotgo.SetFocus(win.HWND(PSHWND))
+	if runtime.GOOS == "windows" {
+		w32.SetFocus(PSHWND)
+		w32.SetForegroundWindow(PSHWND)
+		robotgo.SetFocus(win.HWND(PSHWND))
+	}
 
 	robotgo.Click()
 	if needLog == true {
@@ -196,6 +203,7 @@ func GetBounds() Region {
 	//fmt.Println("Bounds is: ", currentBounds)
 	return currentBounds
 }
+
 func FindThanResize() {
 	name := "PS Remote Play"
 	// find the process id by the process name
@@ -227,21 +235,23 @@ func FindThanResize() {
 	//x, y, w, h := robotgo.GetBounds(pid)
 	//fmt.Println("GetBounds is: ", x, y, w, h)
 
-	err = w32syscall.EnumWindows(func(hwnd syscall.Handle, lparam uintptr) bool {
-		h := w32.HWND(hwnd)
+	if runtime.GOOS == "windows" {
+		err = w32syscall.EnumWindows(func(hwnd syscall.Handle, lparam uintptr) bool {
+			h := w32.HWND(hwnd)
 
-		text := w32.GetWindowText(h)
-		if strings.Contains(text, name) {
-			PSHWND = h
-			w32.MoveWindow(h, RegionPSWindow.x, RegionPSWindow.y, RegionPSWindow.width, RegionPSWindow.height, true)
-			GetBounds()
+			text := w32.GetWindowText(h)
+			if strings.Contains(text, name) {
+				PSHWND = h
+				w32.MoveWindow(h, RegionPSWindow.x, RegionPSWindow.y, RegionPSWindow.width, RegionPSWindow.height, true)
+				GetBounds()
+			}
+			return true
+		}, 0)
+		if err != nil {
+			log.Fatalln(err)
 		}
-		return true
-	}, 0)
-	if err != nil {
-		log.Fatalln(err)
+		MouseFocus(false)
 	}
-	MouseFocus(false)
 
 	//sleep(1)
 	//robotgo.Kill(pid)
