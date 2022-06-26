@@ -6,6 +6,7 @@ require (
 	github.com/JamesHovious/w32 v1.2.0
 	github.com/go-vgo/robotgo v0.100.10
 	github.com/hnakamur/w32syscall v0.0.0-20150329104255-b8b99ed86a56
+	github.com/micmonay/keybd_event v1.1.1
 	github.com/robotn/gohook v0.31.3
 	github.com/samber/lo v1.21.0
 )

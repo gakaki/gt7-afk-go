@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.gakaki.com/gt7-afk-go/util"
+	"github.gakaki.com/gt7-afk-go/game"
+	u "github.gakaki.com/gt7-afk-go/util"
 )
 
 func main() {
-
-	util.FindThanResize()
-	
+	u.FindThanResize()
+	game.Reward117()
 }
