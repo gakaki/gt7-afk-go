@@ -1,7 +1,9 @@
     ## GT7 (Sony PS5 Race Game) Automation GoLang
 this is gt7 game afk with go language
 
-###### Current project get Jetbrain Pycharm ide powerfuly support
+###### Currently is only for Windows 
+
+###### Get Jetbrain Pycharm ide powerfuly support
 
 <img src="https://www.jetbrains.com/shop/static/images/jetbrains-logo-inv.svg" height="100">   
 

@@ -3,6 +3,8 @@ package util
 import (
 	"fmt"
 	"github.com/JamesHovious/w32"
+	"github.com/hnakamur/w32syscall"
+	"github.com/lxn/win"
 
 	//"github.com/JamesHovious/w32"
 
@@ -43,7 +45,7 @@ var (
 	PID              = 0 // ps remote play window pid\
 )
 
-//var PSHWND w32.HWND
+var PSHWND w32.HWND
 
 func Sleep(t time.Duration) {
 	time.Sleep(t)
