@@ -25,6 +25,9 @@ func main() {
 }
 
 //cafe menu
-//PosColor {506, 330, "0b0a0b"}
-//PosColor {511, 340, "ffffff"}
-//PosColor {526, 329, "0a0a0a"}
+//PosColor {888, 553, "ffffff"}
+//PosColor {875, 524, "151515"}
+
+//home
+//PosColor {1172, 556, "ffffff"}
+//PosColor {1158, 543, "151515"}

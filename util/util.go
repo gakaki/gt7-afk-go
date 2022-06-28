@@ -58,7 +58,7 @@ func KeyUp(keyName string) {
 }
 func Press(keyName string) {
 	MouseFocus(false)
-	fmt.Println("key press:", keyName)
+	//fmt.Println("key press:", keyName)
 	KeyDown(keyName)
 	Sleep(200 * time.Millisecond)
 	KeyUp(keyName)
@@ -129,8 +129,7 @@ func AllPixelMatch(posColors []PosColor, fail_call_back_func func()) bool {
 
 func WaitCafeMenuPixel() bool {
 	pos_and_pixels := []PosColor{
-		PosColor{1108, 686, "ffffff"},
-		//PosColor{1130, 683, "ffffff"},
+		PosColor{876, 527, "1a1a1a"},
 	}
 	if AllPixelMatch(pos_and_pixels, func() {
 		fmt.Println("detect PIXEL_CAFE found res : False")
@@ -146,7 +145,7 @@ func WaitCafeMenuPixel() bool {
 
 func WaitCarHomePixel() bool {
 	pos_and_pixels := []PosColor{
-		PosColor{1479, 699, "ffffff"},
+		PosColor{1156, 545, "1a1a1a"},
 	}
 	if AllPixelMatch(pos_and_pixels, func() {
 		fmt.Println("detect PIXEL_CAR_HOME found res : False")
@@ -162,7 +161,7 @@ func WaitCarHomePixel() bool {
 
 func WaitAlreadyGetRewardPixel() bool {
 	pos_and_pixels := []PosColor{
-		PosColor{511, 484, "ffffff"},
+		PosColor{407, 384, "ffffff"},
 	}
 
 	if AllPixelMatch(pos_and_pixels, func() {
